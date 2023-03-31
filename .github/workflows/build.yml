@@ -20,6 +20,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
+      - name: install wrapper
+        run: mvn -N io.takari:maven:wrapper
+
       - name: Build with Maven
         run: ./mvnw verify
 
@@ -28,4 +31,4 @@ jobs:
         run: |
           ./mvnw clean package jib:dockerBuild -DskipTests
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          
+           docker push ${{ secrets.DOCKER_USERNAME }}/bookmarker
