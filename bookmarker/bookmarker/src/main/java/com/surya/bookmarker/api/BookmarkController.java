@@ -22,4 +22,5 @@ public class BookmarkController {
 
         return bookmarkService.getBookmarks(page);
     }
+
 }
