@@ -30,5 +30,5 @@ jobs:
         run: |
           ./mvnw clean package jib:dockerBuild -DskipTests
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker tag ${{ secrets.DOCKER_USERNAME }}/bookmarker ${{ secrets.DOCKER_USERNAME }}/bookmarker:0.0.1-SNAPSHOT
+          docker tag registry.hub.docker.com/${{ secrets.DOCKER_USERNAME }}/bookmarker ${{ secrets.DOCKER_USERNAME }}/bookmarker:0.0.1-SNAPSHOT
           docker push registry.hub.docker.com/${{ secrets.DOCKER_USERNAME }}/bookmarker:0.0.1-SNAPSHOT
