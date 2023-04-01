@@ -20,8 +20,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - name: install wrapper
-        run: mvn -N io.takari:maven:wrapper
 
       - name: Build with Maven
         run: ./mvnw verify
